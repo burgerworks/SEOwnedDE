@@ -99,7 +99,11 @@ bool CRapidFire::ShouldExitCreateMove(CUserCmd* pCmd)
 		if (!m_bSetCommand)
 		{
 			*pCmd = m_ShiftCmd;
+			pCmd->buttons |= IN_ATTACK;
 			m_bSetCommand = true;
+		} else { // lol
+			*pCmd = m_ShiftCmd;
+			pCmd->buttons |= IN_ATTACK;
 		}
 
 		if (CFG::Exploits_RapidFire_Antiwarp && m_bStartedShiftOnGround)
